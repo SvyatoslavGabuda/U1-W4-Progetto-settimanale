@@ -1,0 +1,43 @@
+header{
+    width: 100%;
+   padding-bottom: 100px;
+}
+
+.logo{
+width: 22%;
+
+}
+
+h1{
+    font-size: 2em;
+}
+
+body{
+ color: white;
+    background-image: url(./img/bg.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    padding-top: 4%;
+    padding-left: 10%;
+    padding-right: 15%;
+    padding-bottom: 20%;
+    
+
+}
+
+.coloriamoistruzioni{
+    color: #c01494;
+}
+.bottonebello{
+    background-color: #00FFFF;
+    height: 80px;
+    width: 250px;
+    margin-left: 150px;
+    border: none;
+    box-shadow:  5px 5px 5px #00FFFF ;
+    
+}
+.testobott{
+  font-size: large;
+  
+}
