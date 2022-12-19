@@ -4,12 +4,28 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./benckmark page.css" />
     <title>Document</title>
   </head>
   <body>
     <div>
-      <h2>Domanda</h2>
-      <button onclick="domande(event)">Inizia Test</button>
+      <div class="contoAllaRovescia"></div>
+      <div>
+        <h1 id="domanda">Qui ci sarà la domanda</h1>
+      </div>
+      <div class="risposte">
+        <button type="radio" id="opzione1"></button>
+        <button type="radio" id="opzione2"></button>
+        <button type="radio" id="opzione3"></button>
+        <button type="radio" id="opzione4"></button>
+      </div>
+      <div>
+        <button onclick="prossimaDomanda()">Next</button>
+      </div>
+      <div>
+        <h2>Domanda: <span id="numeroDomanda"></span>/6</h2>
+      </div>
     </div>
+    <script src="./questionario.js"></script>
   </body>
 </html>

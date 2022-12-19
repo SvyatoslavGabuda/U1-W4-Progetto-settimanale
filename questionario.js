@@ -93,40 +93,94 @@ const questions = [
     incorrect_answers: ["Python", "C", "Jakarta"],
   },
 ];
-
-const risposteGiuste = [];
-const risposteSbaglaite = [];
-const domande = function (e) {
-  // {
-  //     category: "Science: Computers",
-  //     type: "multiple",
-  //     difficulty: "easy",
-  //     question: "What does CPU stand for?",
-  //     correct_answer: "Central Processing Unit",
-  //     incorrect_answers: [
-  //       "Central Process Unit",
-  //       "Computer Personal Unit",
-  //       "Central Processor Unit",
-  //     ],
-  //   },
-  for (let i = 0; i < questions.length; i++) {
-    if (questions.type === "boolean") {
-      const divDoveInseririre1 = document.querySelector("div");
-      const domandaBool = document.createElement("h2");
-      const rispostaTrue = document.createElement("button");
-      const rispostaFalse = document.createElement("button");
-    } else {
-      const divDoveInseririre = document.querySelector("div");
-      const domanda = document.createElement("h2");
-      const risposta1 = document.createElement("button");
-      const risposta2 = document.createElement("button");
-      const risposta3 = document.createElement("button");
-      const risposta4 = document.createElement("button");
-      domanda.innerText = questions[i].question;
-      risposta1.innerText = questions[i].correct_answer;
-      risposta2.innerText = questions[i].incorrect_answers[0];
-      risposta3.innerText = questions[i].incorrect_answers[1];
-      risposta4.innerText = questions[i].incorrect_answers[2];
+const domandeChieste = [];
+const prendiProssimaDomanda = function () {
+  //funzione che mi ritorna una domanda random
+  while (domandeChieste.length <= 5) {
+    const domandaRandom =
+      questions[Math.floor(Math.random() * questions.length)];
+    if (!domandeChieste.includes(domandaRandom)) {
+      domandeChieste.push(domandaRandom);
     }
   }
+  return;
 };
+
+console.log("11", domandeChieste);
+let numeroD = 1; //massimo6
+const risposteGiuste = [];
+const risposteSbaglaite = [];
+let numeroDomGiuste = 0;
+let numeroDomSbagliate = 0;
+const domanda = function (indice) {
+  prendiProssimaDomanda();
+  const domandaOra = domandeChieste[indice];
+
+  let numeroDomCorrente = document.getElementById("numeroDomanda");
+  numeroDomCorrente = numeroD;
+
+  const quesitoDom = document.getElementById("domanda");
+  quesitoDom.innerText = domandaOra.question;
+
+  const opzione1 = document.getElementById("opzione1");
+  opzione1.innerText = domandaOra.correct_answer;
+
+  const opzione2 = document.getElementById("opzione2");
+  opzione2.innerText = domandaOra.incorrect_answers[0];
+
+  const opzione3 = document.getElementById("opzione3");
+  opzione3.innerText = domandaOra.incorrect_answers[1];
+
+  const opzione4 = document.getElementById("opzione4");
+  opzione4.innerText = domandaOra.incorrect_answers[2];
+  console.log("aaa", domandeChieste);
+
+  console.log("bbb", opzione1);
+  console.log("ccc", quesitoDom);
+  console.log("ddd", opzione3);
+};
+console.log("eee", domandeChieste);
+
+const controllRisposta = function () {
+  const domandaCurr = domandeChieste[numeroD - 1];
+  console.log("domandaCurr", domandaCurr);
+  const rispostaCoretta = domandaCurr.correct_answer;
+  const risposte = document.querySelectorAll(".risposte>button");
+  risposte.onclick = function (event) {
+    console.log(event);
+    event.cuurrentTarget.classList.add(".rispostaSelezionata");
+  };
+  let rispostaSelezionata = document.querySelector(
+    ".risposte .rispostaSelezionata"
+  );
+  if (rispostaCoretta === rispostaSelezionata.innerText) {
+    numeroDomGiuste++;
+    risposteGiuste.push(domandaCurr);
+  } else {
+    numeroDomSbagliate++;
+    risposteSbaglaite.push(domandaCurr);
+  }
+};
+console.log("eee2", domandeChieste);
+const prossimaDomanda = function () {
+  controllRisposta();
+  if (numeroD <= 7) {
+    domanda(numeroD - 1);
+  } else {
+    console.log("esame terminato");
+  }
+};
+
+// const domande = function (e) {
+//   // {
+//   //     category: "Science: Computers",
+//   //     type: "multiple",
+//   //     difficulty: "easy",
+//   //     question: "What does CPU stand for?",
+//   //     correct_answer: "Central Processing Unit",
+//   //     incorrect_answers: [
+//   //       "Central Process Unit",
+//   //       "Computer Personal Unit",
+//   //       "Central Processor Unit",
+//   //     ],
+//   //   },
