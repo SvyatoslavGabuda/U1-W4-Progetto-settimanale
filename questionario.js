@@ -94,8 +94,7 @@ const questions = [
   },
 ];
 const domandeChieste = [];
-const prendiProssimaDomanda = function () {
-  //funzione che mi ritorna una domanda random
+const creaGruppoDomande = function () {
   while (domandeChieste.length <= 5) {
     const domandaRandom =
       questions[Math.floor(Math.random() * questions.length)];
@@ -103,7 +102,8 @@ const prendiProssimaDomanda = function () {
       domandeChieste.push(domandaRandom);
     }
   }
-  return;
+  console.log("arrey fuori", domandeChieste);
+  console.log("singola domanda", domandaRandom);
 };
 
 console.log("11", domandeChieste);
@@ -114,7 +114,7 @@ let numeroDomGiuste = 0;
 let numeroDomSbagliate = 0;
 
 const domanda = function (indice) {
-  prendiProssimaDomanda();
+  creaGruppoDomande();
 
   const domandaOra = domandeChieste[indice];
   console.log("aquesta è il vaore di domandaOra", domandaOra);
