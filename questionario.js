@@ -112,9 +112,13 @@ const risposteGiuste = [];
 const risposteSbaglaite = [];
 let numeroDomGiuste = 0;
 let numeroDomSbagliate = 0;
+
 const domanda = function (indice) {
   prendiProssimaDomanda();
+
   const domandaOra = domandeChieste[indice];
+  console.log("aquesta è il vaore di domandaOra", domandaOra);
+  console.log("questo è il valore di domendechiestei", domandeChieste[indice]);
 
   let numeroDomCorrente = document.getElementById("numeroDomanda");
   numeroDomCorrente = numeroD;
@@ -170,17 +174,3 @@ const prossimaDomanda = function () {
     console.log("esame terminato");
   }
 };
-
-// const domande = function (e) {
-//   // {
-//   //     category: "Science: Computers",
-//   //     type: "multiple",
-//   //     difficulty: "easy",
-//   //     question: "What does CPU stand for?",
-//   //     correct_answer: "Central Processing Unit",
-//   //     incorrect_answers: [
-//   //       "Central Process Unit",
-//   //       "Computer Personal Unit",
-//   //       "Central Processor Unit",
-//   //     ],
-//   //   },
