@@ -95,13 +95,20 @@ const questions = [
 ];
 const domandeChieste = [];
 const creaGruppoDomande = function () {
-  while (domandeChieste.length <= 5) {
-    const domandaRandom =
-      questions[Math.floor(Math.random() * questions.length)];
-    if (!domandeChieste.includes(domandaRandom)) {
-      domandeChieste.push(domandaRandom);
+    for (let i = 0 i< 5; i ++) {const domandaRandom =
+        questions[Math.floor(Math.random() * questions.length)];
+      if (!domandeChieste.includes(domandaRandom)) {
+        domandeChieste.push(domandaRandom);
+      }
+        
     }
-  }
+//   while (domandeChieste.length <= 5) {
+//     const domandaRandom =
+//       questions[Math.floor(Math.random() * questions.length)];
+//     if (!domandeChieste.includes(domandaRandom)) {
+//       domandeChieste.push(domandaRandom);
+//     }
+//   }
   console.log("arrey fuori", domandeChieste);
   console.log("singola domanda", domandaRandom);
 };
