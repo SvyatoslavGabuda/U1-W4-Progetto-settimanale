@@ -15,12 +15,13 @@ h1{
 body{
  color: white;
     background-image: url(./img/bg.jpg);
-    background-size: 100%;
+    background-size: contain;
     background-repeat: no-repeat;
     padding-top: 4%;
     padding-left: 10%;
     padding-right: 15%;
     padding-bottom: 20%;
+    
 
 }
 
