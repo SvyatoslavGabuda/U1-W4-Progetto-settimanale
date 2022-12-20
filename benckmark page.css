@@ -1,4 +1,62 @@
+body {
+  background-image: url(./img/bg.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  text-align: center;
+  color: aliceblue;
+}
+
+.coloriamoistruzioni {
+  color: #c01494;
+}
+
+h2 {
+  text-align: center;
+  color: white;
+  font-size: xx-large;
+  font-weight: 900;
+}
+.btngrid {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.btn {
+  width: 33%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  color: blanchedalmond;
+  border-radius: 30px;
+  border-color: white;
+  cursor: pointer;
+  margin: 2rem;
+  padding: 1rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.btn:hover {
+  border-color: rgb(255, 0, 200);
+}
+
+.startBtn,
+.nextBtn {
+  background-color: #00ffff;
+  height: 80px;
+  width: 250px;
+  margin-left: 150px;
+  border: none;
+  box-shadow: 5px 5px 5px #00ffff;
+}
+
+.hide {
+  display: none;
+}
 .rispostaSelezionata {
-  background-color: red;
-  color: blue;
+  background-color: rgb(255, 0, 200);
 }
