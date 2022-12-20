@@ -93,97 +93,99 @@ const questions = [
     incorrect_answers: ["Python", "C", "Jakarta"],
   },
 ];
-const domandeChieste = [];
+const startButton = document.getElementById("startBtn");
+const nextButton = document.getElementById("nextBtn");
+const contenitoreDomande = document.getElementById("domanda");
+const titoloDomanda = document.getElementById("testoDomanda");
+const bottoniRisposta = document.getElementById("risposte");
+const contenitoreGenerale = document.getElementById("contenitoreQuiz");
+console.log(contenitoreGenerale);
+console.log("bottoni risposta", bottoniRisposta);
+const domandeMescolate = [];
+let indexDomandaCorrente = 0;
+let numDomCorrette = 0;
+let numDomSbagliate = 0;
+const arrDomGiuste = [];
+const arrDomSbagliate = [];
+
 const creaGruppoDomande = function () {
-  while (domandeChieste.length <= 5) {
+  while (domandeMescolate.length <= 5) {
     const domandaRandom =
       questions[Math.floor(Math.random() * questions.length)];
-    if (!domandeChieste.includes(domandaRandom)) {
-      domandeChieste.push(domandaRandom);
+    if (!domandeMescolate.includes(domandaRandom)) {
+      domandeMescolate.push(domandaRandom);
     }
-    // console.log("singola domanda", domandaRandom);
   }
-  console.log("arrey fuori", domandeChieste);
 };
 
-// console.log("11", domandeChieste);
-let numeroD = 1; //massimo6
-const risposteGiuste = [];
-const risposteSbaglaite = [];
-let numeroDomGiuste = 0;
-let numeroDomSbagliate = 0;
-
-const domanda = function (indice) {
+const inizia = function () {
+  console.log("iniziato");
   creaGruppoDomande();
-
-  const domandaOra = domandeChieste[indice];
-  console.log("aquesta è il vaore di domandaOra", domandaOra);
-  console.log("questo è il valore di domendechiestei", domandeChieste[indice]);
-
-  let numeroDomCorrente = document.getElementById("numeroDomanda");
-  numeroDomCorrente = numeroD;
-
-  const quesitoDom = document.getElementById("domanda");
-  quesitoDom.innerText = domandaOra.question;
-
-  const opzione1 = document.getElementById("opzione1");
-  opzione1.innerText = domandaOra.correct_answer;
-
-  const opzione2 = document.getElementById("opzione2");
-  opzione2.innerText = domandaOra.incorrect_answers[0];
-
-  const opzione3 = document.getElementById("opzione3");
-  opzione3.innerText = domandaOra.incorrect_answers[1];
-
-  const opzione4 = document.getElementById("opzione4");
-  opzione4.innerText = domandaOra.incorrect_answers[2];
-
-  // console.log("aaa", domandeChieste);
-
-  // console.log("ccc", quesitoDom);
-  // console.log("bbb", opzione1);
-  // console.log("ddd", opzione3);
+  indexDomandaCorrente = 0;
+  startButton.classList.add("hide");
+  contenitoreDomande.classList.remove("hide");
+  proxDomanda();
 };
-// console.log("eee", domandeChieste);
 
-//
-//   category: "Science: Computers",
-//   type: "multiple",
-//   difficulty: "easy",
-//   question: "What does CPU stand for?",
-//   correct_answer: "Central Processing Unit",
-//   incorrect_answers: [
-//     "Central Process Unit",
-//     "Computer Personal Unit",
-//     "Central Processor Unit",
-//
-const controllRisposta = function () {
-  const domandaCurr = domandeChieste[numeroD - 1];
-  console.log("domandaCurr", domandaCurr);
-  const rispostaCoretta = domandaCurr.correct_answer;
-  console.log("risposta corretta", rispostaCoretta);
-  const risposte = document.querySelectorAll(".risposte button");
-  risposte.onclick = function (event) {
-    console.log(event);
-    event.currentTarget.classList.add(".rispostaSelezionata");
-  };
-  let rispostaSelezionata = document.querySelector(
-    ".risposte .rispostaSelezionata"
-  );
-  if (rispostaCoretta === rispostaSelezionata.innerText) {
-    numeroDomGiuste++;
-    risposteGiuste.push(domandaCurr);
-  } else {
-    numeroDomSbagliate++;
-    risposteSbaglaite.push(domandaCurr);
+startButton.addEventListener("click", inizia);
+nextButton.addEventListener("click", () => {
+  indexDomandaCorrente++;
+  proxDomanda();
+});
+const proxDomanda = function () {
+  reset();
+  mostraDomanda(domandeMescolate[indexDomandaCorrente]);
+};
+
+const mostraDomanda = function (domande) {
+  titoloDomanda.innerText = domande.question;
+  const rispostaGiusta = [];
+  rispostaGiusta.push(domande.correct_answer);
+
+  const arrDiRisposte = rispostaGiusta.concat(domande.incorrect_answers);
+
+  console.log(arrDiRisposte);
+
+  arrDiRisposte.forEach((risp) => {
+    const button1 = document.createElement("button");
+    button1.innerText = risp;
+    button1.classList.add("btn");
+    button1.addEventListener("click", selezionaRisposta);
+    bottoniRisposta.appendChild(button1);
+  });
+};
+
+const reset = function () {
+  nextButton.classList.add("hide");
+  while (bottoniRisposta.firstChild) {
+    bottoniRisposta.removeChild(bottoniRisposta.firstChild);
   }
 };
-console.log("eee2", domandeChieste);
-const prossimaDomanda = function () {
-  controllRisposta();
-  if (numeroD <= 7) {
-    domanda(numeroD - 1);
+const selezionaRisposta = function (e) {
+  const bottoneSelezionato = e.target;
+  bottoneSelezionato.classList.add("rispostaSelezionata");
+
+  if (
+    bottoneSelezionato.innerText ===
+    domandeMescolate[indexDomandaCorrente].correct_answer
+  ) {
+    numDomCorrette++;
+    arrDomGiuste.push(domandeMescolate[indexDomandaCorrente]);
   } else {
-    console.log("esame terminato");
+    numDomSbagliate++;
+    arrDomSbagliate.push(domandeMescolate[indexDomandaCorrente]);
+  }
+  if (domandeMescolate.length > indexDomandaCorrente + 1) {
+    nextButton.classList.remove("hide");
+  } else {
+    const rispostegiuste = document.createElement("h2");
+    const rispostegiustetesto = document.createElement("h2");
+
+    rispostegiustetesto.innerText = "Questo sono le vostre risposte esatte:";
+    rispostegiuste.innerText = numDomCorrette;
+    contenitoreGenerale.appendChild(rispostegiustetesto);
+    contenitoreGenerale.appendChild(rispostegiuste);
+    contenitoreDomande.classList.add("hide");
+    startButton.classList.add("hide");
   }
 };

@@ -4,28 +4,30 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <link rel="stylesheet" href="./style1Pg.css" /> -->
     <link rel="stylesheet" href="./benckmark page.css" />
     <title>Document</title>
   </head>
   <body>
-    <div>
+    <div id="contenitoreQuiz">
       <div class="contoAllaRovescia"></div>
-      <div>
-        <h1 id="domanda">Qui ci sarà la domanda</h1>
+      <div id="domanda" class="hide">
+        <div id="testoDomanda">domanda</div>
+
+        <div id="risposte" class="btngrid">
+          <button class="btn">a1</button>
+          <button class="btn">a2</button>
+          <button class="btn">a3</button>
+          <button class="btn">a4</button>
+        </div>
       </div>
-      <div class="risposte">
-        <button type="radio" id="opzione1"></button>
-        <button type="radio" id="opzione2"></button>
-        <button type="radio" id="opzione3"></button>
-        <button type="radio" id="opzione4"></button>
-      </div>
-      <div>
-        <button onclick="prossimaDomanda()">Next</button>
-      </div>
-      <div>
-        <h2>Domanda: <span id="numeroDomanda"></span>/6</h2>
+
+      <div class="pulsanti">
+        <button id="startBtn" class="startBtn btn">start</button>
+        <button id="nextBtn" class="nextBtn btn hide">next</button>
       </div>
     </div>
+
     <script src="./questionario.js"></script>
   </body>
 </html>
