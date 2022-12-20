@@ -95,25 +95,18 @@ const questions = [
 ];
 const domandeChieste = [];
 const creaGruppoDomande = function () {
-  for (let i = 0; i < 5; i++) {
+  while (domandeChieste.length <= 5) {
     const domandaRandom =
       questions[Math.floor(Math.random() * questions.length)];
     if (!domandeChieste.includes(domandaRandom)) {
       domandeChieste.push(domandaRandom);
     }
+    // console.log("singola domanda", domandaRandom);
   }
-  //   while (domandeChieste.length <= 5) {
-  //     const domandaRandom =
-  //       questions[Math.floor(Math.random() * questions.length)];
-  //     if (!domandeChieste.includes(domandaRandom)) {
-  //       domandeChieste.push(domandaRandom);
-  //     }
-  //   }
   console.log("arrey fuori", domandeChieste);
-  console.log("singola domanda", domandaRandom);
 };
 
-console.log("11", domandeChieste);
+// console.log("11", domandeChieste);
 let numeroD = 1; //massimo6
 const risposteGiuste = [];
 const risposteSbaglaite = [];
@@ -144,22 +137,35 @@ const domanda = function (indice) {
 
   const opzione4 = document.getElementById("opzione4");
   opzione4.innerText = domandaOra.incorrect_answers[2];
-  console.log("aaa", domandeChieste);
 
-  console.log("bbb", opzione1);
-  console.log("ccc", quesitoDom);
-  console.log("ddd", opzione3);
+  // console.log("aaa", domandeChieste);
+
+  // console.log("ccc", quesitoDom);
+  // console.log("bbb", opzione1);
+  // console.log("ddd", opzione3);
 };
-console.log("eee", domandeChieste);
+// console.log("eee", domandeChieste);
 
+//
+//   category: "Science: Computers",
+//   type: "multiple",
+//   difficulty: "easy",
+//   question: "What does CPU stand for?",
+//   correct_answer: "Central Processing Unit",
+//   incorrect_answers: [
+//     "Central Process Unit",
+//     "Computer Personal Unit",
+//     "Central Processor Unit",
+//
 const controllRisposta = function () {
   const domandaCurr = domandeChieste[numeroD - 1];
   console.log("domandaCurr", domandaCurr);
   const rispostaCoretta = domandaCurr.correct_answer;
-  const risposte = document.querySelectorAll(".risposte>button");
+  console.log("risposta corretta", rispostaCoretta);
+  const risposte = document.querySelectorAll(".risposte button");
   risposte.onclick = function (event) {
     console.log(event);
-    event.cuurrentTarget.classList.add(".rispostaSelezionata");
+    event.currentTarget.classList.add(".rispostaSelezionata");
   };
   let rispostaSelezionata = document.querySelector(
     ".risposte .rispostaSelezionata"
