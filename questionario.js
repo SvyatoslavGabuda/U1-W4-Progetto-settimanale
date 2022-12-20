@@ -178,7 +178,7 @@ const selezionaRisposta = function (e) {
   }
   if (domandeMescolate.length > indexDomandaCorrente + 1) {
     nextButton.classList.remove("hide");
-  } else {
+  } /*else {
     const rispostegiuste = document.createElement("h2");
     const rispostegiustetesto = document.createElement("h2");
 
@@ -190,4 +190,5 @@ const selezionaRisposta = function (e) {
     startButton.classList.add("hide");
     valoreIndice.classList.add("hide");
   }
+  */
 };
