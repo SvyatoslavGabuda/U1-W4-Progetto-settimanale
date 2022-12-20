@@ -99,8 +99,8 @@ const contenitoreDomande = document.getElementById("domanda");
 const titoloDomanda = document.getElementById("testoDomanda");
 const bottoniRisposta = document.getElementById("risposte");
 const contenitoreGenerale = document.getElementById("contenitoreQuiz");
-console.log(contenitoreGenerale);
-console.log("bottoni risposta", bottoniRisposta);
+const valoreIndice = document.getElementById("indiceDomanda");
+
 const domandeMescolate = [];
 let indexDomandaCorrente = 0;
 let numDomCorrette = 0;
@@ -119,7 +119,6 @@ const creaGruppoDomande = function () {
 };
 
 const inizia = function () {
-  console.log("iniziato");
   creaGruppoDomande();
   indexDomandaCorrente = 0;
   startButton.classList.add("hide");
@@ -134,7 +133,9 @@ nextButton.addEventListener("click", () => {
 });
 const proxDomanda = function () {
   reset();
+
   mostraDomanda(domandeMescolate[indexDomandaCorrente]);
+  valoreIndice.innerText = indexDomandaCorrente;
 };
 
 const mostraDomanda = function (domande) {
@@ -187,5 +188,6 @@ const selezionaRisposta = function (e) {
     contenitoreGenerale.appendChild(rispostegiuste);
     contenitoreDomande.classList.add("hide");
     startButton.classList.add("hide");
+    valoreIndice.classList.add("hide");
   }
 };
