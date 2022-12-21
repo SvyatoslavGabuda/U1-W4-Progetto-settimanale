@@ -5,51 +5,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style1Pg.css">
-    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="./FeedbackPage.css">
     <title>FeedBackPage</title>
 </head>
 <style>
-    h1{
-        margin-bottom: 0;
-    }
-    h5{
-        font-weight:100;
-    }
-    body{
-        text-align: center;
-        padding-left: 25%;
-        padding-right: 25%;
-        
-    }
-   .defaultColor{
-    fill:#081366;
-   }
-   input[type=text] {
-  
-  box-sizing: border-box;
-  border: none;
-  border-bottom: 2px solid violet;
-  background-color: transparent;
-  color: red;
-  width: 100%;
-  font-size:3vh;
 
-}
-input[type=text]:focus{
-    outline:none;
-}
-button{
-    margin: 0;
-    margin-top: 3em;
-    font-size: 3vh;
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
-}
-.bottonmouseover{
-    font-weight: bold;
-}
- 
 </style>
 <body>
+    <header>
+        <div >
+            <img class="logo" src="./img/epicode_logo.png" alt="">
+        </div>
+        
+    </header>
+    <main>
     <h1>Tell us how it's going</h1>
     <h5>From 0 to 10 how likely, are you reccomend EPICODE to a frined or a collegue?</h5>
     
@@ -98,93 +67,9 @@ button{
     </div>
     <div class="results"></div>
 
-
-    <script>
-            const callEventButton=function(){
-                const bottone=document.querySelector("button");
-                bottone.onmouseover=function(e){
-                    bottone.classList.add("bottonmouseover");
-                }
-                bottone.onmouseleave=function(e){
-                    bottone.classList.remove("bottonmouseover");
-                }
-            }
-
-
-            const callEventsOnAllTheStars=function(star,index){
-                let isitclicked=false;
-                let variabile;
-                star.onmouseover=function(){colorTheStars(index,star,isitclicked)};
-                star.onclick=function(){
-                    isitclicked=true;
-                    variabile=index+1;
-                    console.log("l'utente ha scelto ",index+1," stelle")
-                }
-                    
-                const textfield=document.querySelector("input[type=text]");
-
-                textfield.addEventListener("keydown",(function(){
-                    if(event.keyCode == 13) {
-                        console.log("il commento inserito dall' utente è:",textfield.value);
-                    textfield.value= "";
-                    isitclicked=true;
-                    textfield.type="hidden";
-                    feedbackText=document.querySelector("#feedbackText");
-                    feedbackText.innerText="Thank you for the FeedBack";
-                        
-                    
-                    
-                    }
-                }))
-
-             
-               
-
-            }
-                
+</main>
+ <script src="./FeedbackPage.js">
             
-            
-            
-
-            let addColorToStarsBefore=function(){}
-        
-
-        const colorTheStars=function(indexFunction,starFuncion,click){
-            if(click===false){
-            let starbefore;
-            let j=0;
-            while(j<=indexFunction){
-            starbefore=pathArray[j];
-            starbefore.classList.remove("defaultColor");
-            j=j+1;
-            }
-            while(j<pathArray.length){
-                starbefore=pathArray[j];
-                starbefore.classList.add("defaultColor");
-                j=j+1;
-            }
-            }
-        }
-
-        const div=document.querySelector("#cointeinerStar");
-        const pathArray=div.querySelectorAll("path");
-      
-     
-       for(i=0;i<pathArray.length;i++)
-        {
-            callEventsOnAllTheStars(pathArray[i],i)
-        }
-        callEventButton();
-      
-        
-        
-   
-        
-        
-       
-    
-        
-   
     </script>
 </body>
 </html>
