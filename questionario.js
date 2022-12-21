@@ -111,6 +111,18 @@ const arrDomGiuste = [];
 const arrDomSbagliate = [];
 let numeroTotaleDomande = 0;
 
+const timer = function () {
+  let sec = 30;
+  const intervallo = setInterval(() => {
+    const orologio = document.getElementById("displyTimer");
+    orologio, (innerText = "00:" + sec);
+    sec--;
+    if (sec < 0) {
+      clearInterval(intervallo);
+    }
+  }, 1000);
+};
+
 const creaGruppoDomande = function () {
   let n = Math.floor(Math.random() * 6 + 3);
   numeroTotaleDomande = n + 1;
@@ -154,18 +166,24 @@ const mostraDomanda = function (domande) {
   const arrDiRisposte = rispostaGiusta.concat(domande.incorrect_answers);
 
   console.log(arrDiRisposte);
-  // const arrDiRisposteMescolate = [];
-  // const risposteRimescolate = function () {
-  //   while (arrDiRisposte.length >= arrDiRisposteMescolate.length) {
-  //     const rispostaRandom =
-  //       arrDiRisposte[Math.floor(Math.random() * arrDiRisposte.length)];
-  //   }
-  //   if (!arrDiRisposteMescolate.includes(rispostaRandom)) {
-  //     arrDiRisposteMescolate.push(rispostaRandom);
-  //   }
-  // };
+  const arrDiRisposteMescolate = [];
+  const lunghezza = arrDiRisposte.length;
+  const risposteRimescolate = function () {
+    while (arrDiRisposteMescolate.length != lunghezza) {
+      const rispostaRandom =
+        arrDiRisposte[Math.floor(Math.random() * lunghezza)];
 
-  arrDiRisposte.forEach((risp) => {
+      if (arrDiRisposteMescolate.includes(rispostaRandom)) {
+      } else {
+        arrDiRisposteMescolate.push(rispostaRandom);
+      }
+    }
+  };
+
+  risposteRimescolate();
+  console.log(arrDiRisposteMescolate);
+
+  arrDiRisposteMescolate.forEach((risp) => {
     const button1 = document.createElement("button");
     button1.innerText = risp;
     button1.classList.add("btn");
@@ -183,6 +201,12 @@ const reset = function () {
 const selezionaRisposta = function (e) {
   const bottoneSelezionato = e.target;
   console.log("evento bottone", bottoneSelezionato);
+
+  const btncreati = document.querySelectorAll(".btngrid .btn");
+  console.log(btncreati);
+
+  btncreati.forEach((btn) => btn.classList.remove("rispostaSelezionata"));
+
   bottoneSelezionato.classList.add("rispostaSelezionata");
 
   if (
@@ -210,5 +234,11 @@ const selezionaRisposta = function (e) {
     valoreIndice.classList.add("hide");
     finishButton.classList.remove("hide");
     pvaloriIndiciDom.classList.add("hide");
+    finishButton.onclick = function () {
+      location.assign(
+        //apicistorti
+        `/results Page.html?numDomCorrette=${numDomCorrette}&numDomSbagliate=${numDomSbagliate}&numeroTotaleDomande=${numeroTotaleDomande}`
+      );
+    };
   }
 };
