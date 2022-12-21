@@ -15,60 +15,87 @@
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
     }
-    button {
-      border-style: solid;
-      border-width: 2px;
-      border-color: white;
-      color: white;
-      margin: 0;
-      background-color: transparent;
-      box-shadow: 0 0 0 0;
-      font-size: 23px;
+    button{border-style: solid;
+        border-width: 2px;
+        border-color: white;
+        color: white;
+        margin: 0;
+        background-color: transparent;
+        box-shadow: 0 0 0 0;
+        font-size: 23px;
+        }
+        
+    
+    .circleDiv{
+        /*margin:auto;*/
+        /*border-radius: 50%;*/
+        width: 90%;
+        height: 90%;
+        background-color: aqua;
+        padding-bottom: 5%;
+        padding-left: 5%;
+        padding-top: 5%;
+        padding-right: 5%;
+       /* border: 1px solid black;*/
+        
+        
+    }
+    .fillCircleDiv{
+    
+        /*width: 35vh;*/
+        height: 90%;
+        width: 90%;
+        /*border-radius: 50%;*/
+        background-color: rgb(0, 26, 255);
+      
+    }
+    
+    h1,h5{
+        color:#D0D1D9;        
+    }
+    h1,h2,h3,h4,h5,h6{
+        margin:0
     }
 
-    .circleDiv {
-      margin: auto;
-      width: 70px;
-      height: 70px;
-      border-radius: 50%;
-      background-color: aqua;
-      border: 1px solid black;
+
+    .threeColumns{
+        margin:auto;
+        padding: 0;
+        width: 100%;
     }
-    .fillCircleDiv {
-      margin: auto;
-      margin-block-start: 10px;
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      background-color: rgb(255, 0, 0);
-    }
-  </style>
-  <body>
+</style>
+<body>
+    
     <main>
-      <div>
-        <h1>Results</h1>
-        <h5>The summary of your answers:</h5>
-      </div>
-      <div class="containerThirdPage">
-        <div class="threeColumns">
-          <h3>Correct</h3>
-          <h4>0.00%</h4>
-          <h5>4/6 questions</h5>
+        <div>
+            <h1>Results</h1>
+            <h5>The summary of your answers:</h5>
         </div>
-        <div class="threeColumns">
-          <div class="circleDiv">
-            <div class="fillCircleDiv"></div>
-          </div>
+        <div class="containerThirdPage">
+            <div class="threeColumns">
+                <h3>Correct</h3>
+                <h4>0.00%</h4>
+                <h5>4/6 questions</h5>
+            </div>
+            <div class="threeColumns">
+                    <div class="circleDiv">
+                    <div class="fillCircleDiv">
+                    
+                </div>
+            </div>
+            </div>
+            <div class="threeColumns">
+                <h3>Wrong</h3>
+                <h4>00.0%</h4>
+                <h5>2/6 questions</h5> 
+            </div>
+
         </div>
-        <div class="threeColumns">
-          <h3>Wrong</h3>
-          <h4>00.0%</h4>
-          <h5>2/6 questions</h5>
+        <div>
+            <button type="button">Rate Us</button>
+            
         </div>
-      </div>
-      <div>
-        <button type="button">Rate Us</button>
-      </div>
+       
     </main>
     <script src="./resultPage.js"></script>
   </body>

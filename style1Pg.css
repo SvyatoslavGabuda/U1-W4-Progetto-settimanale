@@ -10,6 +10,8 @@ width: 10%;
 }
 
 
+h3{font-size: 3vw; }
+h4{font-size: 3vw; }
 
 
 h1{
@@ -46,7 +48,7 @@ body{
 .coloriamoistruzioni{
     color: #c01494;
     font-size: 1.5em;
-    font-weight: bold;
+    font-weight:900;
     
 }
 button{
