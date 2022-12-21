@@ -112,19 +112,42 @@ let numDomSbagliate = 0;
 const arrDomGiuste = [];
 const arrDomSbagliate = [];
 let numeroTotaleDomande = 0;
+let intervallo;
 
 const timer = function () {
   let sec = 30;
-  const intervallo = setInterval(() => {
+  intervallo = setInterval(() => {
     const orologio = document.getElementById("displyTimer");
-    orologio.innerText = "00:" + sec;
+    orologio.innerText = sec;
     sec--;
     if (sec < 0) {
       clearInterval(intervallo);
-      indexDomandaCorrente++;
-      proxDomanda();
+      if (domandeMescolate.length > indexDomandaCorrente + 1) {
+        indexDomandaCorrente++;
+        proxDomanda();
+      } else {
+        const rispostegiuste = document.createElement("h2");
+        const rispostegiustetesto = document.createElement("h2");
+
+        rispostegiustetesto.innerText =
+          "Questo sono le vostre risposte esatte:";
+        rispostegiuste.innerText = numDomCorrette;
+        contenitoreGenerale.appendChild(rispostegiustetesto);
+        contenitoreGenerale.appendChild(rispostegiuste);
+        contenitoreDomande.classList.add("hide");
+        startButton.classList.add("hide");
+        valoreIndice.classList.add("hide");
+        finishButton.classList.remove("hide");
+        pvaloriIndiciDom.classList.add("hide");
+        finishButton.onclick = function () {
+          location.assign(
+            `/results Page.html?numDomCorrette=${numDomCorrette}&numDomSbagliate=${numDomSbagliate}&numeroTotaleDomande=${numeroTotaleDomande}`
+          );
+        };
+      }
     }
   }, 1000);
+  // return intervallo;
 };
 
 const creaGruppoDomande = function () {
@@ -146,6 +169,7 @@ const inizia = function () {
   startButton.classList.add("hide");
   contenitoreDomande.classList.remove("hide");
   pvaloriIndiciDom.classList.remove("hide");
+  timer();
 
   proxDomanda();
 };
@@ -154,13 +178,16 @@ startButton.addEventListener("click", inizia);
 nextButton.addEventListener("click", () => {
   indexDomandaCorrente++;
   proxDomanda();
+  clearInterval(intervallo);
+  timer();
+  // clearInterval(timer());
 });
+
 const proxDomanda = function () {
   reset();
-  timer();
 
   mostraDomanda(domandeMescolate[indexDomandaCorrente]);
-  valoreIndice.innerText = indexDomandaCorrente + 1;
+  valoreIndice.innerText = "QUESTION " + (indexDomandaCorrente + 1);
   timerEsercizio.classList.remove("hide");
 };
 
