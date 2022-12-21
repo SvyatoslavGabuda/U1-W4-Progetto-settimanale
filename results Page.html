@@ -6,12 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Results Page</title>
     <link rel="stylesheet" href="./style1Pg.css" />
+    <link rel="stylesheet" href="./reusltPage.css">
   </head>
   <style>
    
 </style>
 <body>
-    
+    <header>
+        <div >
+            <img class="logo" src="./img/epicode_logo.png" alt="">
+        </div>
+        
+    </header>
     <main>
         <div>
             <h1>Results</h1>
@@ -20,25 +26,25 @@
         <div class="containerThirdPage">
             <div class="threeColumns">
                 <h3>Correct</h3>
-                <h4>0.00%</h4>
-                <h5>4/6 questions</h5>
+                <h4 id="correctPercentage">0.00%</h4>
+                <h5 id="correctAnswers">4/6 questions</h5>
             </div>
             <div class="threeColumns">
                     <div class="circleDiv">
                     <div class="fillCircleDiv">
                     
-                </div>
+            </div>
             </div>
             </div>
             <div class="threeColumns">
                 <h3>Wrong</h3>
-                <h4>00.0%</h4>
-                <h5>2/6 questions</h5> 
+                <h4 id="wrongPercentage">00.0%</h4>
+                <h5 id="wrongAnswers">2/6 questions</h5> 
             </div>
 
         </div>
         <div>
-            <button type="button">Rate Us</button>
+            <button id="btn" type="button">RATE US</button>
             
         </div>
        
