@@ -8,3 +8,16 @@ let btn = document.getElementById("btn");
             btn.disabled="true";
         }
 	}
+	/*finishButton.onclick = function () {
+		location.assign(
+		  //apicistorti
+		  `/results Page.html?numDomCorrette=${numDomCorrette}&numDomSbagliate=${numDomSbagliate}&numeroTotaleDomande=${numeroTotaleDomande}`
+		);
+	  };*/
+	  const pulsante = document.getElementById("btn")
+	  pulsante.onclick = function(){
+		location.assign( 
+			"/benchmark Page.html"
+			
+		)
+	  }
