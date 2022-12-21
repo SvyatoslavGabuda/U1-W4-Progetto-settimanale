@@ -103,6 +103,8 @@ const contenitoreGenerale = document.getElementById("contenitoreQuiz");
 const valoreIndice = document.getElementById("indiceDomanda");
 const valoreDomandeTotali = document.getElementById("domandetotali");
 const pvaloriIndiciDom = document.getElementById("contatoredomanda");
+const timerEsercizio = document.getElementById("contoAllaRovescia");
+
 const domandeMescolate = [];
 let indexDomandaCorrente = 0;
 let numDomCorrette = 0;
@@ -115,10 +117,12 @@ const timer = function () {
   let sec = 30;
   const intervallo = setInterval(() => {
     const orologio = document.getElementById("displyTimer");
-    orologio, (innerText = "00:" + sec);
+    orologio.innerText = "00:" + sec;
     sec--;
     if (sec < 0) {
       clearInterval(intervallo);
+      indexDomandaCorrente++;
+      proxDomanda();
     }
   }, 1000);
 };
@@ -153,12 +157,15 @@ nextButton.addEventListener("click", () => {
 });
 const proxDomanda = function () {
   reset();
+  timer();
 
   mostraDomanda(domandeMescolate[indexDomandaCorrente]);
   valoreIndice.innerText = indexDomandaCorrente + 1;
+  timerEsercizio.classList.remove("hide");
 };
 
 const mostraDomanda = function (domande) {
+  // setTimeout(proxDomanda, 2000);
   titoloDomanda.innerText = domande.question;
   const rispostaGiusta = [];
   rispostaGiusta.push(domande.correct_answer);
@@ -198,6 +205,7 @@ const reset = function () {
     bottoniRisposta.removeChild(bottoniRisposta.firstChild);
   }
 };
+
 const selezionaRisposta = function (e) {
   const bottoneSelezionato = e.target;
   console.log("evento bottone", bottoneSelezionato);
@@ -221,7 +229,7 @@ const selezionaRisposta = function (e) {
   }
   if (domandeMescolate.length > indexDomandaCorrente + 1) {
     nextButton.classList.remove("hide");
-  } /*else {
+  } else {
     const rispostegiuste = document.createElement("h2");
     const rispostegiustetesto = document.createElement("h2");
 
@@ -241,5 +249,4 @@ const selezionaRisposta = function (e) {
       );
     };
   }
-  */
 };
