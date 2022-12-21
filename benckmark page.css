@@ -5,6 +5,14 @@ body {
   text-align: center;
   color: aliceblue;
 }
+#logo {
+  display: inline-block;
+  text-align: left;
+}
+img {
+  width: 20%;
+  text-align: left;
+}
 
 .coloriamoistruzioni {
   color: #c01494;
@@ -43,13 +51,18 @@ h2 {
 .btn:hover {
   border-color: rgb(255, 0, 200);
 }
+.pulsanti {
+  text-align: center;
+}
 
 .startBtn,
-.nextBtn {
+.nextBtn,
+.finishBtn {
+  position: relative;
+  top: 10rem;
+  left: 50%;
   background-color: #00ffff;
-  height: 80px;
-  width: 250px;
-  margin-left: 150px;
+
   border: none;
   box-shadow: 5px 5px 5px #00ffff;
 }

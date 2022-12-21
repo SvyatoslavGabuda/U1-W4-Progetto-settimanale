@@ -9,8 +9,14 @@
     <title>Document</title>
   </head>
   <body>
+    <div id="logo">
+      <img src="./img/epicode_logo.png" alt="epicode_logo" />
+    </div>
+    <div class="contoAllaRovescia">
+      <h3>timer</h3>
+      <p id="displyTimer">00:30</p>
+    </div>
     <div id="contenitoreQuiz">
-      <div class="contoAllaRovescia"></div>
       <div id="domanda" class="hide">
         <div><h2 id="testoDomanda">Domanda</h2></div>
 
@@ -25,7 +31,18 @@
       <div class="pulsanti">
         <button id="startBtn" class="startBtn btn">start</button>
         <button id="nextBtn" class="nextBtn btn hide">next</button>
-        <span id="indiceDomanda"> </span>
+        <button
+          src="./results Page.html"
+          id="finishBtn"
+          class="finishBtn btn hide"
+        >
+          FINISH
+        </button>
+      </div>
+      <div>
+        <p id="contatoredomanda" class="hide">
+          <span id="indiceDomanda"> </span> /<span id="domandetotali"></span>
+        </p>
       </div>
     </div>
 
