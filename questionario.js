@@ -95,21 +95,27 @@ const questions = [
 ];
 const startButton = document.getElementById("startBtn");
 const nextButton = document.getElementById("nextBtn");
+const finishButton = document.getElementById("finishBtn");
 const contenitoreDomande = document.getElementById("domanda");
 const titoloDomanda = document.getElementById("testoDomanda");
 const bottoniRisposta = document.getElementById("risposte");
 const contenitoreGenerale = document.getElementById("contenitoreQuiz");
 const valoreIndice = document.getElementById("indiceDomanda");
-
+const valoreDomandeTotali = document.getElementById("domandetotali");
+const pvaloriIndiciDom = document.getElementById("contatoredomanda");
 const domandeMescolate = [];
 let indexDomandaCorrente = 0;
 let numDomCorrette = 0;
 let numDomSbagliate = 0;
 const arrDomGiuste = [];
 const arrDomSbagliate = [];
+let numeroTotaleDomande = 0;
 
 const creaGruppoDomande = function () {
-  while (domandeMescolate.length <= 5) {
+  let n = Math.floor(Math.random() * 6 + 3);
+  numeroTotaleDomande = n + 1;
+  valoreDomandeTotali.innerText = numeroTotaleDomande;
+  while (domandeMescolate.length <= n) {
     const domandaRandom =
       questions[Math.floor(Math.random() * questions.length)];
     if (!domandeMescolate.includes(domandaRandom)) {
@@ -123,6 +129,8 @@ const inizia = function () {
   indexDomandaCorrente = 0;
   startButton.classList.add("hide");
   contenitoreDomande.classList.remove("hide");
+  pvaloriIndiciDom.classList.remove("hide");
+
   proxDomanda();
 };
 
@@ -135,7 +143,7 @@ const proxDomanda = function () {
   reset();
 
   mostraDomanda(domandeMescolate[indexDomandaCorrente]);
-  valoreIndice.innerText = indexDomandaCorrente;
+  valoreIndice.innerText = indexDomandaCorrente + 1;
 };
 
 const mostraDomanda = function (domande) {
@@ -146,6 +154,16 @@ const mostraDomanda = function (domande) {
   const arrDiRisposte = rispostaGiusta.concat(domande.incorrect_answers);
 
   console.log(arrDiRisposte);
+  // const arrDiRisposteMescolate = [];
+  // const risposteRimescolate = function () {
+  //   while (arrDiRisposte.length >= arrDiRisposteMescolate.length) {
+  //     const rispostaRandom =
+  //       arrDiRisposte[Math.floor(Math.random() * arrDiRisposte.length)];
+  //   }
+  //   if (!arrDiRisposteMescolate.includes(rispostaRandom)) {
+  //     arrDiRisposteMescolate.push(rispostaRandom);
+  //   }
+  // };
 
   arrDiRisposte.forEach((risp) => {
     const button1 = document.createElement("button");
@@ -164,6 +182,7 @@ const reset = function () {
 };
 const selezionaRisposta = function (e) {
   const bottoneSelezionato = e.target;
+  console.log("evento bottone", bottoneSelezionato);
   bottoneSelezionato.classList.add("rispostaSelezionata");
 
   if (
@@ -189,5 +208,7 @@ const selezionaRisposta = function (e) {
     contenitoreDomande.classList.add("hide");
     startButton.classList.add("hide");
     valoreIndice.classList.add("hide");
+    finishButton.classList.remove("hide");
+    pvaloriIndiciDom.classList.add("hide");
   }
 };
