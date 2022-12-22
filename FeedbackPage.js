@@ -6,6 +6,10 @@ const callEventButton=function(){
     bottone.onmouseleave=function(e){
         bottone.classList.remove("bottonmouseover");
     }
+    bottone.onclick=function(e){
+        console.log("ok");
+  location.href = "https://epicode.com/en";
+    };
 }
 
 
@@ -21,9 +25,15 @@ const callEventsOnAllTheStars=function(star,index){
         
     const textfield=document.querySelector("input[type=text]");
 
-    textfield.addEventListener("keydown",(function(){
-        if(event.keyCode == 13) {
+    textfield.addEventListener("keydown",(function(e){
+        if(e.keyCode == 13) {{
+            if(textfield.value==="dance"){
+                const body = document.body;
+                body.style.backgroundImage =
+                "url('./img/Dance.jpg')";
+            }
             console.log("il commento inserito dall' utente è:",textfield.value);
+        }
         textfield.value= "";
         isitclicked=true;
         textfield.type="hidden";
