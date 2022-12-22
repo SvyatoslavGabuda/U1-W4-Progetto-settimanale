@@ -9,14 +9,23 @@ const testorosso = document.getElementById("rosso");
 console.log("rosso", testorosso);
 const congrad = document.getElementById("congratulation");
 const cerchio = document.getElementById("cerchio");
+const body = document.body;
+console.log(cerchio);
+console.log(body);
+const gandalf = function () {
+  body.style.color = "black";
+  body.style.backgroundImage =
+    "url('./img/You Shall Not Pass! - Gandalf - LOTR by stickeesbiz on DeviantArt.png')";
+};
+testorosso.addEventListener("click", gandalf);
 
 const addValuestoHtml = function () {
   const textWrongPercentage = document.querySelector("#wrongPercentage");
   const textWrongAnswers = document.querySelector("#wrongAnswers");
   const textCorrectAnswers = document.querySelector("#correctAnswers");
   const textCorrectPercentage = document.querySelector("#correctPercentage");
-  const wrongpercentage = Math.floor((sbagliate * 100) / totali).toFixed(2);
-  const correctpercentage = Math.round((giuste * 100) / totali).toFixed(2);
+  const wrongpercentage = ((sbagliate * 100) / totali).toFixed(2);
+  const correctpercentage = ((giuste * 100) / totali).toFixed(2);
   textWrongPercentage.innerText = `${wrongpercentage}%`;
   textCorrectPercentage.innerText = `${correctpercentage}%`;
   textCorrectAnswers.innerText = `${giuste} / ${totali} answers`;

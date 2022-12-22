@@ -2,6 +2,9 @@ main {
   text-align: center;
   font-family: "Outfit", sans-serif;
 }
+/* body {
+  background-image: url(./img/You\ Shall\ Not\ Pass!\ -\ Gandalf\ -\ LOTR\ by\ stickeesbiz\ on\ DeviantArt.png);
+} */
 .containerThirdPage {
   display: grid;
   /* position: relative; */
