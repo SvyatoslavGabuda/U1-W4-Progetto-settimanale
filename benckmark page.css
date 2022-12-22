@@ -55,7 +55,7 @@ img {
 h2 {
   text-align: center;
   color: white;
-  font-size: 3rem;
+  font-size: 2em;
   font-weight: 700;
   font-family: "Outfit", sans-serif;
 }
@@ -81,7 +81,7 @@ h2 {
   margin: 1rem;
   padding: 1rem;
   font-weight: 600;
-  font-size: 0.9rem;
+  font-size: 0.9em;
 }
 
 .btn:hover {
@@ -114,12 +114,16 @@ h2 {
   background-color: rgb(255, 0, 200);
 }
 #contatoredomanda {
-  padding-top: 6rem;
+  padding-top: 4rem;
   color: #c01494;
-  font-size: 1.5rem;
+  font-size: 1vw;
   font-weight: 600;
   padding-bottom: 0;
 }
 #contatoredomanda #indiceDomanda {
   color: white;
+}
+#contenitoreQuiz{
+  padding-left: 15%;
+  padding-right: 15%;
 }
