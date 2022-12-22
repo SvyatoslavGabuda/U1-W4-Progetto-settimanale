@@ -93,6 +93,7 @@ const questions = [
     incorrect_answers: ["Python", "C", "Jakarta"],
   },
 ];
+
 const startButton = document.getElementById("startBtn");
 const nextButton = document.getElementById("nextBtn");
 const finishButton = document.getElementById("finishBtn");
