@@ -9,6 +9,7 @@ main {
   display: grid;
   /* position: relative; */
   grid-template-columns: 1fr 1fr 1fr;
+ 
 }
 button {
   border-style: solid;
@@ -31,7 +32,7 @@ button {
 .circleDiv {
   width: 13rem;
   height: 13rem;
-  margin: 2rem;
+  margin: auto;
   /*position: absolute;
   top: 50%;
   left: 50%;
