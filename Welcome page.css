@@ -1,5 +1,6 @@
 h1{
-    font-size: 9vh;
+    font-size: 10vh;
+    line-height: 6vh;
 }
 
 p{
@@ -59,4 +60,14 @@ label{
 }
 span{
     margin-right:1%;
+}
+h1 {
+    font-weight: 400;
+    
+
+}
+h1 span{
+    font-weight: 700;
+    
+
 }
