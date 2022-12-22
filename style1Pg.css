@@ -79,7 +79,14 @@ height: 0;
 
 .bianchiamo:hover input ~ .trucco {
     background-color: white;
+    border: none;
+    outline: 2px solid white
 }
+
+
+ input:checked ~ .trucco {
+    background-color:white;
+  }
 
 
 .testobott{
