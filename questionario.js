@@ -121,11 +121,14 @@ const timer = function () {
     orologio.innerText = sec;
     sec--;
     if (sec < 0) {
-      clearInterval(intervallo);
+      // clearInterval(intervallo);
       if (domandeMescolate.length > indexDomandaCorrente + 1) {
         indexDomandaCorrente++;
         proxDomanda();
+        clearInterval(intervallo);
+        timer();
       } else {
+        clearInterval(intervallo);
         const rispostegiuste = document.createElement("h2");
         const rispostegiustetesto = document.createElement("h2");
 
