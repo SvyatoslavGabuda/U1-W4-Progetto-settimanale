@@ -43,14 +43,13 @@ const pulsante = document.getElementById("btn");
 pulsante.onclick = function () {
   console.log("ok");
   location.href = "./Feedback Page.html";
-
 };
-pulsante.onmouseover=function(){
+pulsante.onmouseover = function () {
   pulsante.classList.add("buttonThirdPage");
 };
 
-pulsante.onmouseleave=function(){
-pulsante.classList.remove("buttonThirdPage");
+pulsante.onmouseleave = function () {
+  pulsante.classList.remove("buttonThirdPage");
 };
 
 addValuestoHtml();
